@@ -16,7 +16,7 @@ if __name__ == '__main__':
         data    = YAML_PATH,
         epochs  = EPOCHS,
         batch   = BATCH,
-        imgsz   = 1280,
+        imgsz   = 640,
         device  = 0,
         patience= 20,
         name    = 'car_damage',
