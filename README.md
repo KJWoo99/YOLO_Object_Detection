@@ -15,6 +15,7 @@ Pascal VOC XML·JSON 어노테이션을 YOLO 포맷으로 변환하는 전처리
 - **클래스**: helmet / head (미착용) / person
 - **어노테이션**: Pascal VOC XML → YOLO bbox
 - **설정**: imgsz 1280, epochs 100, patience 20
+- **결과**: mAP50 **0.633** / mAP50-95 **0.418**
 
 ### 2. 도로 파손 감지 (Road Crack Detection)
 
@@ -25,6 +26,7 @@ Pascal VOC XML·JSON 어노테이션을 YOLO 포맷으로 변환하는 전처리
 - **어노테이션**: Pascal VOC XML → YOLO bbox
 - **설정**: imgsz 1280, epochs 100, patience 20, rect=True
 - **데이터**: RoadDamageDetector (sekilab)
+- **결과**: mAP50 **0.612** / mAP50-95 **0.300**
 
 ### 3. 차량 파손 세그멘테이션 (Car Damage Segmentation)
 
@@ -33,7 +35,7 @@ Pascal VOC XML·JSON 어노테이션을 YOLO 포맷으로 변환하는 전처리
 - **모델**: YOLO11n-seg (instance segmentation)
 - **클래스**: Scratched (스크래치) / Breakage (파손) / Separated (이격) / Crushed (찌그러짐)
 - **어노테이션**: JSON polygon → YOLO segmentation
-- **설정**: imgsz 1280, epochs 100, patience 20
+- **설정**: imgsz 640, epochs 100, patience 20
 - **데이터**: AI Hub 차량 손상 데이터셋
 
 ---
@@ -44,7 +46,7 @@ Pascal VOC XML·JSON 어노테이션을 YOLO 포맷으로 변환하는 전처리
 1. 어노테이션 변환   Pascal VOC XML / JSON → YOLO format (.txt)
 2. 데이터 분할       8:1:1 (train / val / test)
 3. YAML 생성         dataset.yaml (paths + class names)
-4. 학습              model.train(epochs=100, imgsz=1280, patience=20)
+4. 학습              model.train(epochs=100, patience=20)
 5. 평가              mAP50 / mAP50-95
 6. 추론 시각화       bounding box (1·2) / polygon mask overlay (3)
 ```
@@ -71,13 +73,15 @@ Pascal VOC XML·JSON 어노테이션을 YOLO 포맷으로 변환하는 전처리
 │   ├── 1_prepare_data.py   # XML → YOLO bbox + 분할 + YAML 생성
 │   ├── 2_train.py          # YOLOv8n 학습
 │   ├── 3_evaluate.py       # mAP50 / mAP50-95
-│   └── 4_inference.py      # bbox 시각화
+│   ├── 4_inference.py      # bbox 시각화
+│   └── result/             # inference_result.png
 ├── 02_road_crack/
 │   ├── README.md
 │   ├── 1_prepare_data.py   # XML → YOLO bbox + 분할 + YAML 생성
 │   ├── 2_train.py          # YOLOv8n 학습 (rect=True)
 │   ├── 3_evaluate.py
-│   └── 4_inference.py
+│   ├── 4_inference.py
+│   └── result/
 └── 03_car_damage/
     ├── README.md
     ├── 1_prepare_data.py   # JSON polygon → YOLO seg + 분할 + YAML 생성
