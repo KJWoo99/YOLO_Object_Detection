@@ -11,14 +11,37 @@ JSON 폴리곤 어노테이션을 YOLO 세그멘테이션 포맷으로 변환하
 | 클래스 | Scratched (스크래치) / Breakage (파손) / Separated (이격) / Crushed (찌그러짐) |
 | 어노테이션 | JSON polygon → YOLO segmentation 변환 |
 | 분할 | 8:1:1 (train / val / test) |
-| 입력 크기 | 1280×1280 |
+| 입력 크기 | 640×640 |
 
 ## Model
 
 - **YOLO11n-seg** (ultralytics, instance segmentation)
 - Epochs: 100 (patience=20, EarlyStopping)
 - Batch: 16
-- imgsz: 1280
+- imgsz: 640
+
+## Results
+
+**Test mAP (Box)**
+
+| mAP50 | mAP50-95 |
+|-------|----------|
+| 0.284 | 0.140 |
+
+**Test mAP (Segmentation)**
+
+| mAP50 | mAP50-95 |
+|-------|----------|
+| 0.214 | 0.074 |
+
+| Class | Box mAP50 | Seg mAP50 |
+|-------|-----------|-----------|
+| Scratched | 0.259 | 0.198 |
+| Breakage | 0.301 | 0.258 |
+| Separated | 0.322 | 0.241 |
+| Crushed | 0.253 | 0.160 |
+
+> YOLO11n-seg (nano) 기준 결과. 파손 영역 특성상 클래스 간 경계가 모호하여 mAP 수치가 낮게 측정됨.
 
 ## Pipeline
 

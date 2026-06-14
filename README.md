@@ -37,6 +37,7 @@ Pascal VOC XML·JSON 어노테이션을 YOLO 포맷으로 변환하는 전처리
 - **어노테이션**: JSON polygon → YOLO segmentation
 - **설정**: imgsz 640, epochs 100, patience 20
 - **데이터**: AI Hub 차량 손상 데이터셋
+- **결과**: mAP50 (box) **0.284** / mAP50-95 (box) **0.140** / mAP50 (seg) **0.214** / mAP50-95 (seg) **0.074**
 
 ---
 
