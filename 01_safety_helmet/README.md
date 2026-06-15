@@ -18,6 +18,17 @@ YOLOv8n 기반 작업 현장 안전모 착용 여부 실시간 탐지 모델입�
 - Batch: 16
 - imgsz: 1280
 
+## Results
+
+| Metric | Value |
+|--------|-------|
+| Precision | 0.631 |
+| Recall | 0.609 |
+| mAP50 | 0.633 |
+| mAP50-95 | 0.418 |
+
+> YOLOv8n (nano) 기준, Epoch 89 (EarlyStopping) 조기 종료 결과.
+
 ## Pipeline
 
 ```

@@ -20,6 +20,17 @@ YOLOv8n 기반 도로 노면 파손 7종 탐지 모델입니다.
 - imgsz: 1280
 - rect: True (직사각형 배치로 패딩 최소화)
 
+## Results
+
+| Metric | Value |
+|--------|-------|
+| Precision | 0.643 |
+| Recall | 0.592 |
+| mAP50 | 0.612 |
+| mAP50-95 | 0.300 |
+
+> YOLOv8n (nano) 기준, Epoch 81 (EarlyStopping) 조기 종료 결과.
+
 ## Pipeline
 
 ```
